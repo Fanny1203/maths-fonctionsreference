@@ -1,0 +1,15 @@
+01;f(x) = x^3 - 2x + 1;La limite existe en tout point.;La fonction est continue partout.;La fonction est dérivable partout.
+02;f(x) = \frac{x^2 + 1}{x + 2};La limite existe sauf en x = -2.;Discontinue seulement en x = -2.;Dérivable sur son domaine.
+03;f(x) = \frac{x^2 - 1}{x - 1};Limite en x = 1 égale à 2.;Non définie en x = 1 donc pas continue.;Pas dérivable en x = 1 car pas définie.
+04;f(x) = \begin{cases} \frac{x^2 - 1}{x - 1} & x \neq 1 \\ 2 & x = 1 \end{cases};Limite en x = 1 bien définie.;Continue en x = 1.;Pas dérivable en x = 1 (non analysée ici).
+05;f(x) = \begin{cases} \frac{x^2 - 1}{x - 1} & x \neq 1 \\ 3 & x = 1 \end{cases};Limite en x = 1 = 2 mais f(1) = 3.;Discontinue en x = 1.;Pas dérivable en x = 1.
+06;f(x) = \frac{1}{x - 1};Limite infinie en x = 1.;Discontinue en x = 1 (asymptote verticale).;Dérivable sur son domaine.
+07;f(x) = \frac{2x^2 + 3}{x^2 + 1};Limite en ±∞ = 2.;Continue partout.;Dérivable partout.
+08;f(x) = \frac{x^2 + 1}{x};Limite en 0 n’existe pas (différente à gauche/droite).;Discontinue en 0.;Pas dérivable en 0.
+09;f(x) = |x|;Limite en 0 existe.;Continue en 0.;Pas dérivable en 0.
+10;f(x) = \begin{cases} 1 & x < 0 \\ 2 & x \geq 0 \end{cases};Limite en 0 n’existe pas.;Discontinue en 0 (saut).;Pas dérivable en 0.
+11;f(x) = x \cdot \sin\left(\frac{1}{x}\right);Limite en 0 = 0.;Continue en 0.;Pas dérivable en 0.
+12;f(x) = \sin\left(\frac{1}{x}\right);Pas de limite en 0 (oscille).;Discontinue en 0.;Pas dérivable en 0.
+13;f(x) = \begin{cases} x^2 \cdot \sin\left(\frac{1}{x} \right) & x \neq 0 \\ 0 & x = 0 \end{cases};Limite en 0 = 0.;Continue en 0.;Pas dérivable en 0.
+14;f(x) = \begin{cases} 0 & x < 0 \\ 1 & x \geq 0 \end{cases};Limite en 0 n’existe pas.;Discontinue en 0.
+15;f(x) = \frac{x^3}{1 + x^2};Limite en ±∞ = 0.;Continue partout.;Dérivable partout.

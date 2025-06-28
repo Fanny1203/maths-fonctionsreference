@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualiseur de Fonctions Mathématiques - Détails</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.desmos.com/api/v1.6/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$']],
+            displayMath: [['\\[', '\\]']],
+            processEscapes: true,
+            packages: ['base', 'ams', 'noerrors', 'noundefined']
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="detail-container">
+        <button id="back-btn" class="btn" onclick="window.location.href='index.html'">← Retour</button>
+        <div class="function-detail">
+            <h2 id="function-title"></h2>
+            <div class="info-tooltips">
+                <div class="tooltip" id="limit-info">
+                    <span class="tooltip-title">Limites</span>
+                    <span class="tooltip-text"></span>
+                </div>
+                <div class="tooltip" id="continuity-info">
+                    <span class="tooltip-title">Continuité</span>
+                    <span class="tooltip-text"></span>
+                </div>
+                <div class="tooltip" id="derivative-info">
+                    <span class="tooltip-title">Dérivation</span>
+                    <span class="tooltip-text"></span>
+                </div>
+            </div>
+            <div id="graph"></div>
+            <div class="calculator">
+                <label for="x-input">Calculer f(x) pour x = </label>
+                <input type="number" id="x-input" step="any">
+                <button id="calculate-btn" class="btn">Calculer</button>
+                <span id="result"></span>
+            </div>
+        </div>
+    </div>
+    <script src="utils.js"></script>
+    <script src="function-detail.js"></script>
+</body>
+</html>
