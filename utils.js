@@ -1,21 +1,58 @@
 // Fonctions utilitaires pour la manipulation des expressions mathématiques
 const utils = {
     // Charger et parser le fichier CSV
+    formatMathContent(text) {
+        // Si le texte est undefined ou vide, retourner une chaîne vide
+        if (!text) {
+            return '';
+        }
+        // Si le texte est déjà entre \[ \], le laisser tel quel
+        if (text.startsWith('\\[') && text.endsWith('\\]')) {
+            return text;
+        }
+        // Sinon, c'est du texte normal
+        return text;
+    },
+
     async loadFunctions() {
-        const response = await fetch('fonctions.csv');
-        const text = await response.text();
-        const lines = text.split('\n').filter(line => line.trim());
-        
-        return lines.map(line => {
-            const [id, expr, limits, continuity, derivative] = line.split(';').map(s => s.trim());
-            return {
-                id,
-                expression: expr,
-                limits,
-                continuity,
-                derivative
-            };
-        });
+        try {
+            console.log('Chargement du fichier CSV...');
+            const response = await fetch('fonctions.csv');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const text = await response.text();
+            console.log('Contenu CSV:', text);
+            if (!text || text.trim() === '') {
+                throw new Error('Le fichier CSV est vide');
+            }
+
+            const lines = text.split('\n').filter(line => line.trim());
+            if (lines.length === 0) {
+                throw new Error('Aucune ligne valide dans le CSV');
+            }
+
+            return lines.map(line => {
+                const parts = line.split(';').map(s => s.trim());
+                if (parts.length < 5) {
+                    console.warn('Ligne CSV invalide:', line);
+                    return null;
+                }
+                const [id, expr, limits, continuity, derivative] = parts;
+                const func = {
+                    id,
+                    expression: expr || '',
+                    limits: this.formatMathContent(limits),
+                    continuity: this.formatMathContent(continuity),
+                    derivative: this.formatMathContent(derivative)
+                };
+                console.log('Fonction chargée:', func);
+                return func;
+            }).filter(func => func !== null);
+        } catch (error) {
+            console.error('Erreur lors du chargement des fonctions:', error);
+            throw error;
+        }
     },
 
     // Générer des valeurs x pour le graphique
